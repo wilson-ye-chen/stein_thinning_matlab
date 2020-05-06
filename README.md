@@ -1,1 +1,1 @@
-# stein_thinning_matlab
+# Stein Thinning for MATLAB
