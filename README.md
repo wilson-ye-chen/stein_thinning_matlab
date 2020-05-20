@@ -1,4 +1,4 @@
-# Stein Thinning
+# Stein Thinning MATLAB
 This MATLAB code implements an algorithm for optimally compressing
 sampling algorithm outputs by minimising a kernel Stein discrepancy.
 Please see the accompanying paper "Optimal Thinning of MCMC Output"
