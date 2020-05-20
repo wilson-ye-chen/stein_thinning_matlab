@@ -21,11 +21,11 @@ as a starting example.
 The default usage requires no additional user input and is based on
 the `sclmed` heuristic. Alternatively, the user can choose to specify
 which heuristic to use for computing the preconditioning matrix by
-setting the option string `pre` to either `med`,  `sclmed`, `smpcov`,
+setting the option string to either `med`,  `sclmed`, `smpcov`,
 `bayesian`, or `avehess`. For example, the default setting corresponds
 to:
 ```matlab
-idx = thin(smpl, grad, 40, pre='sclmed')
+idx = thin(smpl, grad, 40, 'sclmed')
 ```
 The details for each of the heuristics are documented in Section 3.4 of
 the accompanying paper.
