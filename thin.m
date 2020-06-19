@@ -4,7 +4,7 @@ function [pi, ksd] = thin(X, G, m, precon)
 % X      - n x d array, each row a sample from MCMC.
 % G      - n x d array, each row the gradient of the log target.
 % m      - desired number of points.
-% precon - string, either 'med', 'sclmed', 'smpcov', 'bayesian' or 'avehess'.
+% precon - string, either 'med', 'sclmed', 'smpcov', or 'bayesian'.
 %
 % Outputs:
 % pi     - m x 1 vector, containing the row indices in X of the selected
@@ -22,13 +22,11 @@ end
 
 % compute preconditioner
 if strcmp(precon,'med')
-    % use a random subset of X of size n0
     n0 = 1000;
     ix = unique(round(linspace(1, n, n0)));
     ell = median(pdist(X(ix,:)));
     Gam = ell^2 * eye(d);
 elseif strcmp(precon,'sclmed')
-    % use a random subset of X of size n0
     n0 = 1000;
     ix = unique(round(linspace(1, n, n0)));
     ell = median(pdist(X(ix,:)));
@@ -37,10 +35,8 @@ elseif strcmp(precon,'smpcov')
     Gam = cov(X);
 elseif strcmp(precon,'bayesian')
     Gam = ((n-1)/(n-d-1)) * cov(X) + (1/(n-d-1)) * eye(d);
-elseif strcmp(precon,'avehess')
-    Gam = inv((1/n) * (G') * G);
 else
-    error('Incorrect preconditioner type.')
+    error('Incorrect preconditioner type.');
 end
 
 % Stein kernel sub-matrix K(X,pi) (i.e., just store entries that we need)
