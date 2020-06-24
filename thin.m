@@ -4,7 +4,7 @@ function [pi, ksd] = thin(X, G, m, precon)
 % X      - n x d array, each row a sample from MCMC.
 % G      - n x d array, each row the gradient of the log target.
 % m      - desired number of points.
-% precon - string, either 'med', 'sclmed', 'smpcov', or 'bayesian'.
+% precon - string, either 'med', 'sclmed', or 'smpcov'.
 %
 % Outputs:
 % pi     - m x 1 vector, containing the row indices in X of the selected
@@ -33,8 +33,6 @@ elseif strcmp(precon,'sclmed')
     Gam = ell^2 * eye(d) / log(min(n, n0));
 elseif strcmp(precon,'smpcov')
     Gam = cov(X);
-elseif strcmp(precon,'bayesian')
-    Gam = ((n-1)/(n-d-1)) * cov(X) + (1/(n-d-1)) * eye(d);
 else
     error('Incorrect preconditioner type.');
 end
