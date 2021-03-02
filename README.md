@@ -5,6 +5,13 @@ Please see the accompanying paper "Optimal Thinning of MCMC Output"
 ([arXiv](https://arxiv.org/pdf/2005.03952.pdf)) for details of the
 algorithm.
 
+# Installation
+To install the toolbox, clone the repository `stein_thinning_matlab`
+to a suitable directory and then add MATLAB path to that directory.
+```
+git clone https://github.com/wilson-ye-chen/stein_thinning_matlab.git
+```
+
 # Getting Started
 For example, correlated samples from a posterior distribution are
 obtained using a MCMC algorithm and stored in the matrix `smpl`,
