@@ -7,7 +7,7 @@ algorithm.
 
 # Installation
 To install the toolbox, clone the repository `stein_thinning_matlab`
-to a suitable directory and then add MATLAB path to that directory.
+into a suitable location and then add it to your MATLAB search path.
 ```
 git clone https://github.com/wilson-ye-chen/stein_thinning_matlab.git
 ```
