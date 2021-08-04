@@ -26,12 +26,14 @@ The `thin` function returns a vector containing the row indices in
 as a starting example.
 
 The default usage requires no additional user input and is based on
-the `sclmed` heuristic. Alternatively, the user can choose to specify
-which heuristic to use for computing the preconditioning matrix by
-setting the option string to either `med`,  `sclmed`, or `smpcov`. For
-example, the default setting corresponds to:
+the identity (`id`) preconditioning matrix and standardised sample.
+Alternatively, the user can choose to specify which heuristic to use
+for computing the preconditioning matrix by setting the option string
+to either `id`, `med`,  `sclmed`, or `smpcov`. Standardisation can be
+disabled by setting the fourth argument to `false`. For example, the
+default setting corresponds to:
 ```matlab
-idx = thin(smpl, grad, 40, 'sclmed')
+idx = thin(smpl, grad, 40, true, 'id')
 ```
-The details for each of the heuristics are documented in Section 3.4 of
+The details for each of the heuristics are documented in Section 2.3 of
 the accompanying paper.

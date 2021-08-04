@@ -1,5 +1,5 @@
-function [pi, ksd] = thin(X, G, m, std, precon)
-% [pi, ksd] = thin(X, G, m, std, precon)
+function [pi, ksd] = thin(X, G, m, stnd, precon)
+% [pi, ksd] = thin(X, G, m, stnd, precon)
 %
 % Version 1.0 of Stein Thinning.
 %
@@ -7,7 +7,7 @@ function [pi, ksd] = thin(X, G, m, std, precon)
 % X      - n x d array, each row a sample from MCMC.
 % G      - n x d array, each row the gradient of the log target.
 % m      - desired number of points.
-% std    - optional logical, either 'true' (default) or 'false', indicating
+% stnd   - optional logical, either 'true' (default) or 'false', indicating
 %          whether or not to standardise the colums of X.
 % precon - optional string, either 'id' (default), 'med', 'sclmed', or
 %          'smpcov', specifying the preconditioner to be used.
@@ -37,14 +37,14 @@ end
 
 % defaults
 if nargin == 3
-    std = true;
+    stnd = true;
     precon = 'id';
 elseif nargin == 4
     precon = 'id';
 end
 
 % standardisation
-if std == true
+if stnd == true
     scl = mad(X,0,1); % mean absolute deviation
     if min(scl) == 0
         error('Too few unique samples in X')

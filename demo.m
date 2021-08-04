@@ -12,4 +12,6 @@ plot(X(idx, 1), X(idx, 2), '.', 'markersize', 30)
 
 % Plot KSD path
 figure()
-semilogy(1:m, ksd)
+plot(log(1:m), log(ksd))
+xlabel('log m')
+ylabel('log KSD')
